@@ -10,23 +10,28 @@
 <input type="text" id="especie" [(ngModel)]="especie">
 <br/>
 
-<label for="especie">Espécie </label>
-<input type="text" [(ngModel)]="statusConservacao">
+<label for="statusConservacao">Status de Conservação </label>
+<input type="text" id="statusConservacao" [(ngModel)]="statusConservacao">
 <br/>
 
-<input type="number" [(ngModel)]="temperaturaMin">
+<label for="temperaturaMin">Temperatura Mínima </label>
+<input type="number" id="temperaturaMin" [(ngModel)]="temperaturaMin">
 <br/>
 
-<input type="number" [(ngModel)]="temperaturaMax">
+<label for="temperaturaMax">Temperatua Máxima </label>
+<input type="number" id="temperaturaMax" [(ngModel)]="temperaturaMax">
 <br/>
 
-<input type="number" [(ngModel)]="phMin">
+<label for="phMin">PH Mínimo </label>
+<input type="number" id="phMin" [(ngModel)]="phMin">
 <br/>
 
-<input type="number" [(ngModel)]="phMax">
+<label for="phMax">PH Máximo </label>
+<input type="number" id="phMax" [(ngModel)]="phMax">
 <br/>
 
-<input type="text" [(ngModel)]="nivelPoluicao">
+<label for="nivelPoluicao">Nível Poluição </label>
+<input type="text" id="nivelPoluicao" [(ngModel)]="nivelPoluicao">
 <br/>
 
 <button (click)="pesquisar()">Pesquisar</button>
@@ -42,10 +47,8 @@
       <th>REGIÃO</th>
       <th>ESPÉCIE</th>
       <th>STATUS CONSERVAÇÃO</th>
-      <th>TEMPERATURA MÍNIMA</th>
-      <th>TEMPERATURA MÁXIMA</th>
-      <th>PH MÍNIMO</th>
-      <th>PH MÁXIMO</th>
+      <th>TEMPERATURA ÁGUA</th>
+      <th>PH</th>
       <th>NÍVEL DE POLUIÇÃO</th>
     </tr>
   </thead>
@@ -55,22 +58,16 @@
         {{item.regiao}}
       </td>
       <td>
-        {{item.especie}}
+        {{printEspecies(item.especies)}}
       </td>
       <td>
-        {{item.statusConservacao}}
+        {{printConservacao(item.projetosConservacao)}}
       </td>
       <td>
-        {{item.temperaturaMin}}
+        {{item.temperaturaAgua}}
       </td>
       <td>
-        {{item.temperaturaMax}}
-      </td>
-      <td>
-        {{item.phMin}}
-      </td>
-      <td>
-        {{item.phMax}}
+        {{item.pH}}
       </td>
       <td>
         {{item.nivelPoluicao}}

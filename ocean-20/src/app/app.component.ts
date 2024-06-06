@@ -25,7 +25,7 @@ export class AppComponent {
   temperaturaMin : any = 0;
   temperaturaMax : any = 0;
   phMin : any = 0;
-  phMax : any = 0;
+  phMax : any = 100;
   nivelPoluicao : any = "";
 
 dados : any[] = [];
@@ -44,7 +44,26 @@ dados : any[] = [];
     }
 
       this.service.getOceanData(filter)
-      .subscribe(retorno => console.log(retorno)
+      .subscribe(retorno =>  {
+        this.dados = retorno;
+        console.log(retorno)
+
+      }
       );
+  }
+
+  printEspecies(especies: any[])
+  {
+   const e = especies.map(x => x.nome + " - " + x.status).join(" | ");
+   console.log(e);
+
+   return e;
+  }
+
+  printConservacao(projetosConservacao: any[]) {
+    const c = projetosConservacao.map(x => x.nomeProjeto + " - " + x.tipoProjeto + " - " + x.tipoParticipacao).join(" | ");
+    console.log(c);
+
+    return c;
   }
 }
