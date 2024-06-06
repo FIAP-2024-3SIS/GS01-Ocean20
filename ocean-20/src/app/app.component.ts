@@ -20,22 +20,31 @@ export class AppComponent {
   }
 
   regiao : string = "";
-  especie : string = "";
-  statusConservacao: string = "";
-  temperaturaMin : number = 0;
-  temperaturaMax : number = 0;
-  phMin : number = 0;
-  phMax : number = 0;
-  nivelPoluicao : string = "";
+  especie : any = "";
+  statusConservacao: any = "";
+  temperaturaMin : any = 0;
+  temperaturaMax : any = 0;
+  phMin : any = 0;
+  phMax : any = 0;
+  nivelPoluicao : any = "";
 
 dados : any[] = [];
 
   pesquisar(){
 
     var filter = {
-      regiao : this.regiao
+      regiao : this.regiao,
+      especie: this.especie,
+      statusConservacao: this.statusConservacao,
+      temperaturaMin : this.temperaturaMin,
+      temperaturaMax : this.temperaturaMax,
+      phMin : this.phMin,
+      phMax : this.phMax,
+      nivelPoluicao : this.nivelPoluicao
     }
+
       this.service.getOceanData(filter)
-      .subscribe(retorno => this.dados = retorno);
+      .subscribe(retorno => console.log(retorno)
+      );
   }
 }
