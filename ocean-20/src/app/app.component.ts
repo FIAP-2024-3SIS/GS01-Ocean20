@@ -21,7 +21,12 @@ export class AppComponent {
 
   regiao : string = "";
   especie : string = "";
-  statusConservacao : string = "";
+  statusConservacao: string = "";
+  temperaturaMin : number = 0;
+  temperaturaMax : number = 0;
+  phMin : number = 0;
+  phMax : number = 0;
+  nivelPoluicao : string = "";
 
 dados : any[] = [];
 

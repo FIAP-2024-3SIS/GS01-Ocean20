@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
     // Método para obter dados de oceano
-    getOceanData(Filters:any): Observable<any> {
-    return this.http.get<any>(`https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?regiao=${filter.regiao}&especie=${filter.especie}&statusConservacao=d&temperaturaMin=20&temperaturaMax=10&phMin=20&phMax=10&nivelPoluicao=d&pagina=1&qtde=20`);
+    getOceanData(filter:any): Observable<any> {
+    return this.http.get<any>(`https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?regiao=${filter.regiao}&especie=${filter.especie}&statusConservacao=${filter.statusConservacao}&temperaturaMin=${filter.temperaturaMin}&temperaturaMax=${filter.temperaturaMax}&phMin=${filter.phMin}&phMax=${filter.phMax}&nivelPoluicao=${filter.nivelPoluicao}&pagina=1&qtde=20`);
     }
 
 }

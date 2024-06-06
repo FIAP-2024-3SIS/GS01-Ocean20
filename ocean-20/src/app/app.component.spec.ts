@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { FiltroEspecieComponent } from './filtro-especie/filtro-especie.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
